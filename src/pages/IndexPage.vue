@@ -1,23 +1,25 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+    <checkbox-component title="Выигрывает команда 1"></checkbox-component>
+    <checkbox-component title="Ничья"></checkbox-component>
+    <checkbox-component title="Выигрывает команда 2"></checkbox-component>
+    <checkbox-component title="Первый тайм"></checkbox-component>
+    <checkbox-component title="Перерыв"></checkbox-component>
+    <checkbox-component title="Второй тайм"></checkbox-component>
   </q-page>
 </template>
 
 <script lang="ts">
+/*<example-component title="Example component" active :todos="todos" :meta="meta"></example-component> */
 import { Todo, Meta } from 'components/models';
 import ExampleComponent from 'components/ExampleComponent.vue';
+import CheckboxComponent from 'components/elements/Checkbox.vue';
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'IndexPage',
-  components: { ExampleComponent },
-  setup () {
+  components: { /*ExampleComponent, */CheckboxComponent },
+  setup() {
     const todos = ref<Todo[]>([
       {
         id: 1,
