@@ -1,11 +1,7 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <checkbox-component title="Выигрывает команда 1"></checkbox-component>
-    <checkbox-component title="Ничья"></checkbox-component>
-    <checkbox-component title="Выигрывает команда 2"></checkbox-component>
-    <checkbox-component title="Первый тайм"></checkbox-component>
-    <checkbox-component title="Перерыв"></checkbox-component>
-    <checkbox-component title="Второй тайм"></checkbox-component>
+    <BlokMain></BlokMain>
+    <RadioBatton></RadioBatton>
   </q-page>
 </template>
 
@@ -13,12 +9,13 @@
 /*<example-component title="Example component" active :todos="todos" :meta="meta"></example-component> */
 import { Todo, Meta } from 'components/models';
 import ExampleComponent from 'components/ExampleComponent.vue';
-import CheckboxComponent from 'components/elements/Checkbox.vue';
+import RadioBatton from 'src/components/elements/RadioBatton.vue';
+import BlokMain from 'components/blockForm/BlokMain.vue';
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'IndexPage',
-  components: { /*ExampleComponent, */CheckboxComponent },
+  components: { /*ExampleComponent, */BlokMain, RadioBatton },
   setup() {
     const todos = ref<Todo[]>([
       {

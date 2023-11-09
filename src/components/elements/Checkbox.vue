@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="col-4">
     <q-checkbox v-model="right" v-bind:label="title" />
   </div>
 </template>
