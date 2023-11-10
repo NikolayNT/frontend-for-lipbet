@@ -1,21 +1,25 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <BlokMain></BlokMain>
-    <RadioBatton></RadioBatton>
+    <div class="q-pa-md justify-evenly q-gutter-lg" style="width: 1000px;">
+      <LeaguesList></LeaguesList>
+      <BlokMain></BlokMain>
+      <ComandType></ComandType>
+      <OutcomeGames></OutcomeGames>
+    </div>
   </q-page>
 </template>
 
 <script lang="ts">
-/*<example-component title="Example component" active :todos="todos" :meta="meta"></example-component> */
 import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
-import RadioBatton from 'src/components/elements/RadioBatton.vue';
+import LeaguesList from 'src/components/blockForm/LeaguesList.vue';
 import BlokMain from 'components/blockForm/BlokMain.vue';
+import ComandType from 'src/components/blockForm/ComandType.vue';
+import OutcomeGames from 'src/components/blockForm/OutcomeGames.vue';
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'IndexPage',
-  components: { /*ExampleComponent, */BlokMain, RadioBatton },
+  components: { LeaguesList, BlokMain, ComandType, OutcomeGames },
   setup() {
     const todos = ref<Todo[]>([
       {
