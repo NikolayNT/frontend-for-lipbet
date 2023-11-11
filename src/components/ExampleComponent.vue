@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <p>{{ title }}</p>
-    <ul>
+  <div style="margin: 0 !important; padding: 0 !important">
+    <p style="margin: 0 !important; padding: 0 !important">{{ title }}</p>
+    <ul style="margin: 0 !important; padding: 0 !important">
       <li v-for="todo in todos" :key="todo.id" @click="increment">
         {{ todo.id }} - {{ todo.content }}
       </li>
@@ -57,7 +57,7 @@ export default defineComponent({
       type: Boolean
     }
   },
-  setup (props) {
+  setup(props) {
     return { ...useClickCount(), ...useDisplayTodo(toRef(props, 'todos')) };
   },
 });

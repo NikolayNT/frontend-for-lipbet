@@ -1,8 +1,8 @@
 {
   "name": "package.json",
-  "version": "0.0.1",
-  "description": "A Quasar Project",
-  "productName": "Quasar App",
+  "version": "0.0.2",
+  "description": "LipBet",
+  "productName": "LipBet",
   "author": "Nikolay Dolgov <koly201020@yandex.ru>",
   "private": true,
   "scripts": {

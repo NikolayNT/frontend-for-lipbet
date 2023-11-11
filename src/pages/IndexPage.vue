@@ -1,10 +1,12 @@
 <template>
-  <q-page class="row items-center justify-evenly">
+  <q-page class="row items-center justify-evenly main" style="margin: 0 !important; padding: 0 !important">
     <div class="q-pa-md justify-evenly q-gutter-lg" style="width: 1000px;">
       <LeaguesList></LeaguesList>
       <BlokMain></BlokMain>
       <ComandType></ComandType>
       <OutcomeGames></OutcomeGames>
+      <GoalsComponent></GoalsComponent>
+      <OddsOutcome titleGeneral="Коэффицикнты на исход" titleOne="Прематч" titleTwo="Лайв"></OddsOutcome>
     </div>
   </q-page>
 </template>
@@ -15,11 +17,14 @@ import LeaguesList from 'src/components/blockForm/LeaguesList.vue';
 import BlokMain from 'components/blockForm/BlokMain.vue';
 import ComandType from 'src/components/blockForm/ComandType.vue';
 import OutcomeGames from 'src/components/blockForm/OutcomeGames.vue';
+import GoalsComponent from 'src/components/blockForm/Goals.vue';
+import OddsOutcome from 'src/components/blockForm/OddsOutcome.vue';
+
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'IndexPage',
-  components: { LeaguesList, BlokMain, ComandType, OutcomeGames },
+  components: { LeaguesList, BlokMain, ComandType, OutcomeGames, GoalsComponent, OddsOutcome },
   setup() {
     const todos = ref<Todo[]>([
       {
@@ -50,3 +55,9 @@ export default defineComponent({
   }
 });
 </script>
+
+<style lang="css">
+.main {
+  background-color: rgba(145, 152, 154, 0.11);
+}
+</style>
