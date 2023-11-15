@@ -7,6 +7,13 @@
       <OutcomeGames></OutcomeGames>
       <GoalsComponent></GoalsComponent>
       <OddsOutcome titleGeneral="Коэффицикнты на исход" titleOne="Прематч" titleTwo="Лайв"></OddsOutcome>
+      <TotalPrematchAndLive titleGeneral="Тотал прематч"></TotalPrematchAndLive>
+      <TotalPrematchAndLive titleGeneral="Тотал лайв"></TotalPrematchAndLive>
+      <FormCommands></FormCommands>
+      <FaceToFaceGames></FaceToFaceGames>
+      <FaceToFaceGoals></FaceToFaceGoals>
+      <Penalty></Penalty>
+      <Statistics title-general="Статистика"></Statistics>
     </div>
   </q-page>
 </template>
@@ -19,12 +26,31 @@ import ComandType from 'src/components/blockForm/ComandType.vue';
 import OutcomeGames from 'src/components/blockForm/OutcomeGames.vue';
 import GoalsComponent from 'src/components/blockForm/Goals.vue';
 import OddsOutcome from 'src/components/blockForm/OddsOutcome.vue';
+import TotalPrematchAndLive from 'src/components/blockForm/TotalPrematchAndLive.vue';
+import FormCommands from 'src/components/blockForm/FormCommands.vue';
+import FaceToFaceGames from 'src/components/blockForm/FaceToFaceGames.vue';
+import FaceToFaceGoals from 'src/components/blockForm/FaceToFaceGoals.vue';
+import Penalty from 'src/components/blockForm/Penalty.vue';
+import Statistics from 'src/components/blockForm/Statistics.vue';
 
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'IndexPage',
-  components: { LeaguesList, BlokMain, ComandType, OutcomeGames, GoalsComponent, OddsOutcome },
+  components: {
+    LeaguesList,
+    BlokMain,
+    ComandType,
+    OutcomeGames,
+    GoalsComponent,
+    OddsOutcome,
+    TotalPrematchAndLive,
+    FormCommands,
+    FaceToFaceGames,
+    FaceToFaceGoals,
+    Penalty,
+    Statistics
+  },
   setup() {
     const todos = ref<Todo[]>([
       {
