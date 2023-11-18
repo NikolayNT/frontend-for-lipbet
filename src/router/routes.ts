@@ -1,66 +1,22 @@
 import { RouteRecordRaw } from 'vue-router';
 
 const routes: RouteRecordRaw[] = [
-  /*{
-    path: '/',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
-  },*/
-
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/MainPage.vue') }],
-  },
-
-  {
-    path: '/matches',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/MatchesPage.vue') }],
-  },
-
-  {
-    path: '/create',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/CreatePage.vue') }],
-  },
-
-  {
-    path: '/forecasts',
-    component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/ForecastsPage.vue') },
-    ],
-  },
-
-  {
-    path: '/rating',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/RatingPage.vue') }],
-  },
-
-  {
-    path: '/testingstrategy',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/TestingStrategyPage.vue') },
-    ],
-  },
-
-  {
-    path: '/beginners',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/BeginnersPage.vue') },
-    ],
-  },
-
-  {
-    path: '/questionsandanswers',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
+      { path: '', component: () => import('pages/MainPage.vue') },
+      { path: 'matches', component: () => import('pages/MatchesPage.vue') },
+      { path: 'create', component: () => import('pages/CreatePage.vue') },
+      { path: 'forecasts', component: () => import('pages/ForecastsPage.vue') },
+      { path: 'rating', component: () => import('pages/RatingPage.vue') },
       {
-        path: '',
+        path: 'testingstrategy',
+        component: () => import('pages/TestingStrategyPage.vue'),
+      },
+      { path: 'beginners', component: () => import('pages/BeginnersPage.vue') },
+      {
+        path: 'questionsandanswers',
         component: () => import('pages/QuestionsAndAnswersPage.vue'),
       },
     ],

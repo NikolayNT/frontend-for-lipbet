@@ -8,7 +8,16 @@ export default {
   balance: 'Balance',
   currency: 'Rubles',
   profilemenubots: 'My bots',
-  profilereplenish: 'profile',
+  profilereplenish: 'Profile',
   profilerate: 'Rate',
   menuHeader: 'Menu',
+
+  leftMenuMain: 'Home',
+  leftMenuLive: 'Live Matches',
+  leftMenuCreate: 'Create a bot',
+  leftMenuForecast: 'Forecasts',
+  leftMenuRating: 'Bot Rating',
+  leftMenutestingstrategy: 'Strategy testing',
+  leftMenubeginners: 'Beginners',
+  leftMenuquestionsandanswers: 'Questions and Answers',
 };

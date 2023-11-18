@@ -22,23 +22,23 @@
         </q-btn-dropdown>
       </div>
     </header>
-    <q-drawer v-model="drawerLeft" side="left" overlay style="width: 250px !important;">
-      <q-btn to="/" class="glossy" rounded color="indigo-7" label="Главная" @click="onItemClick"
+    <q-drawer v-model="drawerLeft" show-if-above persistent overlay style="width: 250px !important;">
+      <q-btn to="/" class="glossy" rounded color="indigo-7" :label="$t('leftMenuMain')" @click="onItemClick"
         :class="[path === '/' ? 'menu__button-active' : '']" />
-      <q-btn to="/matches" class="glossy" rounded color="indigo-7" label="Live-Матчи" @click="onItemClick"
+      <q-btn to="/matches" class="glossy" rounded color="indigo-7" :label="$t('leftMenuLive')" @click="onItemClick"
         :class="[path === '/matches' ? 'menu__button-active ' : '']" />
       <q-btn to="/create" :class="[path === '/create' ? 'menu__button-active ' : '']" class="glossy" rounded
-        color="indigo-7" label="Создать бот" @click="onItemClick" />
+        color="indigo-7" :label="$t('leftMenuCreate')" @click="onItemClick" />
       <q-btn to="/forecasts" :class="[path === '/forecasts' ? 'menu__button-active ' : '']" class="glossy" rounded
-        color="indigo-7" label="Прогнозы" @click="onItemClick" />
+        color="indigo-7" :label="$t('leftMenuForecast')" @click="onItemClick" />
       <q-btn to="/rating" :class="[path === '/rating' ? 'menu__button-active ' : '']" class="glossy" rounded
-        color="indigo-7" label="Рейтинг ботов" @click="onItemClick" />
+        color="indigo-7" :label="$t('leftMenuRating')" @click="onItemClick" />
       <q-btn to="/testingstrategy" :class="[path === '/testingstrategy' ? 'menu__button-active ' : '']" class="glossy"
-        rounded color="indigo-7" label="Тестирование стратегии" @click="onItemClick" />
+        rounded color="indigo-7" :label="$t('leftMenutestingstrategy')" @click="onItemClick" />
       <q-btn to="/beginners" :class="[path === '/beginners' ? 'menu__button-active ' : '']" class="glossy" rounded
-        color="indigo-7" label="Начинающим" @click="onItemClick" />
+        color="indigo-7" :label="$t('leftMenubeginners')" @click="onItemClick" />
       <q-btn to="/questionsandanswers" :class="[path === '/questionsandanswers' ? 'menu__button-active ' : '']"
-        class="glossy" rounded color="indigo-7" label="Вопросы и ответы" @click="onItemClick" />
+        class="glossy" rounded color="indigo-7" :label="$t('leftMenuquestionsandanswers')" @click="onItemClick" />
 
       <div class="q-mini-drawer-hide absolute" style="top: 160px; right: -34px">
         <q-btn dense round unelevated color="indigo-7" icon="chevron_left" @click="drawerLeft = !drawerLeft" />
@@ -54,7 +54,7 @@
 
 <script lang="ts">
 
-import { useI18n } from 'vue-i18n'
+import { useI18n } from 'vue-i18n';
 
 import { defineComponent, ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
@@ -70,11 +70,12 @@ export default defineComponent({
     const path = computed(() => route.path);
 
     return {
-      drawerLeft: ref(false),
+      drawerLeft: ref(true),
       path,
       onItemClick(e: unknown) {
         console.log(locale),
           console.log(e)
+
       },
       onRusLocaleClick() {
         locale.value = 'ru-RU';

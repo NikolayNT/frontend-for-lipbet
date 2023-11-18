@@ -1,14 +1,21 @@
 <template>
   <q-page style="min-height: calc(100% - 300px);">
-    <h2 class="page__title">Пополнить</h2>
+    <h2 class="page__title">{{ $t('profilereplenish') }}</h2>
   </q-page>
 </template>
 
 <script lang="ts">
+import { useI18n } from 'vue-i18n';
 import { defineComponent, } from 'vue';
 
 export default defineComponent({
-  name: 'MyBotsPage',
+  name: 'ReplenishPage',
+  setup() {
+    const { locale } = useI18n({ useScope: 'global' })
+    return {
+      locale,
+    }
+  }
 });
 </script>
 

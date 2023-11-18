@@ -1,14 +1,21 @@
 <template>
   <q-page style="min-height: calc(100% - 300px);">
-    <h2 class="page__title">Вопросы и ответы</h2>
+    <h2 class="page__title">{{ $t('leftMenuquestionsandanswers') }}</h2>
   </q-page>
 </template>
 
 <script lang="ts">
+import { useI18n } from 'vue-i18n';
 import { defineComponent, } from 'vue';
 
 export default defineComponent({
-  name: 'MainPage',
+  name: 'QuestionsAndAnswersPage',
+  setup() {
+    const { locale } = useI18n({ useScope: 'global' })
+    return {
+      locale,
+    }
+  }
 });
 </script>
 

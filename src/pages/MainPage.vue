@@ -1,14 +1,24 @@
 <template>
   <q-page style="min-height: calc(100% - 300px);">
-    <h2 class="page__title">Главная</h2>
+    <h2 class="page__title">{{ $t('leftMenuMain') }}</h2>
   </q-page>
 </template>
 
 <script lang="ts">
+
+import { useI18n } from 'vue-i18n'
+
 import { defineComponent, } from 'vue';
 
 export default defineComponent({
   name: 'MainPage',
+
+  setup() {
+    const { locale } = useI18n({ useScope: 'global' })
+    return {
+      locale,
+    }
+  }
 });
 </script>
 
