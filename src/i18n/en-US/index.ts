@@ -3,5 +3,12 @@
 
 export default {
   failed: 'Action failed',
-  success: 'Action was successful'
+  success: 'Action was successful',
+  language: 'English',
+  balance: 'Balance',
+  currency: 'Rubles',
+  profilemenubots: 'My bots',
+  profilereplenish: 'profile',
+  profilerate: 'Rate',
+  menuHeader: 'Menu',
 };

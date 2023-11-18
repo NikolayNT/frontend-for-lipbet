@@ -1,16 +1,16 @@
 <template>
-  <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center"
-    style="margin: 0 !important; padding: 0 !important">
+  <div class=" text-black text-center q-pa-md flex flex-center"
+    style="margin: 0 !important; padding: 0 !important; height: 100%;">
     <div>
       <div style="font-size: 30vh">
         404
       </div>
 
       <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
+        Ой. Здесь ничего нет...
       </div>
 
-      <q-btn class="q-mt-xl" color="white" text-color="blue" unelevated to="/" label="Go Home" no-caps />
+      <q-btn class="q-mt-xl" color="white" text-color="black" unelevated to="/" label="На главную" no-caps />
     </div>
   </div>
 </template>
