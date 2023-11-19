@@ -1,7 +1,5 @@
 <template>
-  <div class="col-4">
-    <q-checkbox v-model="right" v-bind:label="title" />
-  </div>
+  <q-checkbox v-model="right" v-bind:label="title" />
 </template>
 
 <script lang="ts">

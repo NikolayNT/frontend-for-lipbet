@@ -1,7 +1,7 @@
 <template>
-  <div class="row">
-    <p class="col self-center q-pt-none q-ma-none q-mx-sm">{{ title }}</p>
-    <q-input type="number" filled v-model="text" class="col q-mr-sm" style="max-width: 70px" />
+  <div class="blok">
+    <p class="text">{{ title }}</p>
+    <input type="number" class="input" v-model="text" style="width: 50px;" />
   </div>
 </template>
 
@@ -27,3 +27,21 @@ export default defineComponent({
   }
 });
 </script>
+
+<style lang="scss">
+.blok {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.text {
+  margin: 0 10px 0 0;
+  padding: 0;
+}
+
+.input {
+  background: rgba($color: #ffffff, $alpha: .5);
+}
+</style>

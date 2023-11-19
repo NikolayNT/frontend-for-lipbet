@@ -1,5 +1,5 @@
 <template>
-  <q-layout style="margin: 0 !important; padding: 0 !important; background-color: rgba(155, 232, 250, 0.285)">
+  <q-layout style="margin: 0 !important; padding: 0 !important; background-color: rgb(223, 244, 249)">
     <header class="header">
       <q-btn to="/" class="header__title">LipBet</q-btn>
       <div class="header__menu row">

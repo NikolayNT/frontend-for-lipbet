@@ -1,1 +1,16 @@
 // app global css in SCSS form
+
+// компоненты формы
+.componentForm {
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 30px;
+  background-color: $TraTraBlue;
+}
+
+.componentForm__text {
+  margin: 0 0 0 10px;
+  padding: 0;
+  width: 100%;
+  font-size: 25px;
+}

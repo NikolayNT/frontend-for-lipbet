@@ -1,10 +1,10 @@
 <template>
-  <div class="row">
-    <p class=" self-center q-pt-none q-ma-none text-no-wrap q-mx-sm ">{{ title }} от</p>
-    <q-input type="number" filled v-model="text" style="max-width: 70px" />
-    <p class=" self-center q-pt-none q-ma-none q-mx-sm">до</p>
-    <q-input type="number" filled v-model="text" style="max-width: 70px" class="" />
-    <p class="self-center q-pt-none q-ma-none q-mx-sm">{{ textEnd }}</p>
+  <div class="blok">
+    <p class="text">{{ title }} от</p>
+    <input type="number" class="input" v-model="text" style="width: 50px;" />
+    <p class="text" style="margin-left: 10px;">до</p>
+    <input type="number" class="input" v-model="textTwo" style="width: 50px;" />
+    <p class="text">{{ textEnd }}</p>
   </div>
 </template>
 
@@ -29,8 +29,28 @@ export default defineComponent({
   },
   setup() {
     return {
-      text: ref('')
+      text: ref(''),
+      textTwo: ref('')
     }
   }
 });
 </script>
+
+<style lang="scss">
+.blok {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.text {
+  margin: 0 10px 0 0;
+  padding: 0;
+}
+
+.input {
+  background: rgba($color: #ffffff, $alpha: .5);
+  border: 1px solid gray;
+}
+</style>
