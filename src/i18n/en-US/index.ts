@@ -7,9 +7,12 @@ export default {
   language: 'English',
   balance: 'Balance',
   currency: 'Rubles',
+
   profilemenubots: 'My bots',
   profilereplenish: 'Profile',
   profilerate: 'Rate',
+  adminmenu: 'Admin panel',
+
   menuHeader: 'Menu',
 
   leftMenuMain: 'Home',

@@ -1,20 +1,32 @@
 <template>
-  <div class="row" style="width: 100%; border: 2px solid black; border-radius: 30px">
+  <div class="componentForm row">
     <div class="q-pa-sm" style="width: 50%; border-right: 2px solid black;">
-      <p class="text-h4">{{ titleOne }}</p>
-      <TwoInputText title="Фаворит коэф. "></TwoInputText>
-      <RadioBatton></RadioBatton>
-      <checkbox-component title="Проигрывает"></checkbox-component>
-      <checkbox-component title="Выигрывает"></checkbox-component>
-      <checkbox-component title="Ничья"></checkbox-component>
+      <p class="componentForm__text">{{ titleOne }}</p>
+      <TwoInputText title="Фаворит коэффициент "></TwoInputText>
+      <div class="row">
+        <div style="width: 50%;">
+          <RadioBatton></RadioBatton>
+        </div>
+        <div style="width: 50%;">
+          <checkbox-component title="Проигрывает"></checkbox-component>
+          <checkbox-component title="Выигрывает"></checkbox-component>
+          <checkbox-component title="Ничья"></checkbox-component>
+        </div>
+      </div>
     </div>
     <div class="q-pa-sm" style="width: calc(50% - 2px)">
-      <p class="text-h4">{{ titleTwo }}</p>
-      <TwoInputText title="Аутсайдер коэф. "></TwoInputText>
-      <RadioBatton></RadioBatton>
-      <checkbox-component title="Проигрывает"></checkbox-component>
-      <checkbox-component title="Выигрывает"></checkbox-component>
-      <checkbox-component title="Ничья"></checkbox-component>
+      <p class="componentForm__text">{{ titleTwo }}</p>
+      <TwoInputText title="Аутсайдер коэффициент "></TwoInputText>
+      <div class="row">
+        <div style="width: 50%;">
+          <RadioBatton></RadioBatton>
+        </div>
+        <div style="width: 50%;">
+          <checkbox-component title="Проигрывает"></checkbox-component>
+          <checkbox-component title="Выигрывает"></checkbox-component>
+          <checkbox-component title="Ничья"></checkbox-component>
+        </div>
+      </div>
     </div>
   </div>
 </template>

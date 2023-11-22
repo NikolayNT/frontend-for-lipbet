@@ -4,14 +4,18 @@
     <div class="row">
       <div class="areas">
         <h2 class="areas__title">Конструктор</h2>
-        <div class="areas__content areas__content_border_solid column" v-mutation="handler1" @dragover="onDragOver">
+        <div class="areas__content areas__content_border_solid column" :v-mutation="handler1" @dragover="onDragOver">
           <BlokMain id="box1" draggable="true" @dragstart="onDragStart"></BlokMain>
           <ComandType id="box2" draggable="true" @dragstart="onDragStart"></ComandType>
+          <OutcomeGames id="box3" draggable="true" @dragstart="onDragStart"></OutcomeGames>
+          <Goals id="box4" draggable="true" @dragstart="onDragStart"></Goals>
+          <OddsOutcome id="box5" draggable="true" @dragstart="onDragStart" titleGeneral="Коэффицикнты на исход"
+            titleOne="Прематч" titleTwo="Лайв"></OddsOutcome>
         </div>
       </div>
       <div class="areas">
         <h2 class="areas__title">Бот</h2>
-        <div id="bot" class="areas__content column" v-mutation="handler2" @dragenter="onDragEnter"
+        <div id="bot" class="areas__content column" :v-mutation="handler2" @dragenter="onDragEnter"
           @dragleave="onDragLeave" @dragover="onDragOver" @drop="onDrop">
           <LeaguesList></LeaguesList>
           <div class="areas__add">
@@ -36,10 +40,13 @@ import { defineComponent, ref } from 'vue';
 import LeaguesList from 'src/components/blockForm/LeaguesList.vue';
 import BlokMain from 'src/components/blockForm/BlokMain.vue';
 import ComandType from 'src/components/blockForm/ComandType.vue';
+import OutcomeGames from 'src/components/blockForm/OutcomeGames.vue';
+import Goals from 'src/components/blockForm/Goals.vue';
+import OddsOutcome from 'src/components/blockForm/OddsOutcome.vue';
 
 export default defineComponent({
   name: 'CreatePage',
-  components: { LeaguesList, BlokMain, ComandType },
+  components: { LeaguesList, BlokMain, ComandType, OutcomeGames, Goals, OddsOutcome },
   setup() {
     const { locale } = useI18n({ useScope: 'global' });
     const status1 = ref([]);
@@ -140,8 +147,8 @@ export default defineComponent({
 }
 
 .areas {
-  margin: 0px 50px 50px 50px;
-  width: 700px;
+  margin: 0px 30px 50px 30px;
+  width: 45%;
 }
 
 .areas__title {
@@ -189,8 +196,8 @@ export default defineComponent({
 
 .button__block {
   position: fixed;
-  top: 50%;
-  right: 50px;
+  bottom: 3%;
+  right: 30px;
   width: 210px;
 }
 

@@ -13,6 +13,7 @@ export default {
   profilemenubots: 'Мои боты',
   profilereplenish: 'Пополнить',
   profilerate: 'Тариф',
+  adminmenu: 'Админка',
 
   leftMenuMain: 'Главная',
   leftMenuLive: 'Live-Матчи',

@@ -1,7 +1,6 @@
 <template>
   <q-page style="min-height: calc(100% - 300px);">
-    <h2 class="page__title">{{ $t('leftMenuForecast') }}</h2>
-    <TextEditorComponent></TextEditorComponent>
+    <h2 class="page__title">{{ $t('adminmenu') }}</h2>
   </q-page>
 </template>
 
@@ -9,11 +8,8 @@
 import { useI18n } from 'vue-i18n';
 import { defineComponent, } from 'vue';
 
-import TextEditorComponent from 'src/components/textEditor/TextEditor.vue';
-
 export default defineComponent({
-  name: 'ForecastsPage',
-  components: { TextEditorComponent },
+  name: 'AdminPage',
   setup() {
     const { locale } = useI18n({ useScope: 'global' })
     return {

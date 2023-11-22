@@ -18,6 +18,7 @@
             <q-btn to="/mybots" class="menu__button-proffile">{{ $t('profilemenubots') }}</q-btn>
             <q-btn to="/replenish" class="menu__button-proffile">{{ $t('profilereplenish') }}</q-btn>
             <q-btn to="/rate" class="menu__button-proffile">{{ $t('profilerate') }}</q-btn>
+            <q-btn to="/admin" class="menu__button-proffile">{{ $t('adminmenu') }}</q-btn>
           </q-list>
         </q-btn-dropdown>
       </div>

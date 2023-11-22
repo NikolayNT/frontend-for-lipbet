@@ -1,36 +1,37 @@
 <template>
-  <div class="row q-pa-sm" style="width: 100%; border: 2px solid black; border-radius: 30px">
-    <p class="text-h4" style="width: 100%;">Исход последних 10-ти игр</p>
-    <div class="q-pa-sm" style="width: 50%; border-right: 2px solid black;">
-      <p class="text-h4">Команда 1</p>
+  <div class="componentForm q-pa-sm row">
+    <p class="componentForm__text">Исход последних 10-ти игр</p>
+    <div style="width: 33%;">
+      <p class="componentForm__text">Команда 1</p>
       <DropDownList></DropDownList>
       <TwoInputText title="В "></TwoInputText>
       <TwoInputText title="Н "></TwoInputText>
       <TwoInputText title="П "></TwoInputText>
     </div>
-    <div class="q-pa-sm" style="width: calc(50% - 2px)">
-      <p class="text-h4">Команда 2</p>
+    <div style="width: 33%;">
+      <p class="componentForm__text">Команда 2</p>
       <DropDownList></DropDownList>
       <TwoInputText title="В "></TwoInputText>
       <TwoInputText title="Н "></TwoInputText>
       <TwoInputText title="П "></TwoInputText>
     </div>
-    <div class="q-pa-sm" style="width: 50%; border-right: 2px solid black;">
-      <p class="text-h4">Фаворит</p>
+    <div style="width: 33%;">
+      <p class="componentForm__text">Фаворит</p>
       <DropDownList></DropDownList>
       <TwoInputText title="В "></TwoInputText>
       <TwoInputText title="Н "></TwoInputText>
       <TwoInputText title="П "></TwoInputText>
     </div>
-    <div class="q-pa-sm" style="width: calc(50% - 2px)">
-      <p class="text-h4">Аутсайдер</p>
+    <div style="width: 100%; height: 2px; background-color: black"></div>
+    <div style="width: 33%;">
+      <p class="componentForm__text">Аутсайдер</p>
       <DropDownList></DropDownList>
       <TwoInputText title="В "></TwoInputText>
       <TwoInputText title="Н "></TwoInputText>
       <TwoInputText title="П "></TwoInputText>
     </div>
-    <div class="q-pa-sm" style="width: 50%; border-right: 2px solid black;">
-      <p class="text-h4">Любая из команд</p>
+    <div style="width: 35%;">
+      <p class="componentForm__text">Любая из команд</p>
       <DropDownList></DropDownList>
       <TwoInputText title="В "></TwoInputText>
       <TwoInputText title="Н "></TwoInputText>

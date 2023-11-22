@@ -1,7 +1,7 @@
 <template>
-  <div class="row">
+  <div class="row" style="margin-bottom: 10px;">
     <p class="self-center q-pt-none q-ma-none q-mx-sm">{{ title }}</p>
-    <q-select v-model="model" :options="options" label="Standard" />
+    <q-select v-model="model" :options="options" :dense="true" />
   </div>
 </template>
 

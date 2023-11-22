@@ -1,6 +1,6 @@
 <template>
-  <div class="row q-pa-sm" style="width: 100%; border: 2px solid black; border-radius: 30px">
-    <p class="text-h4" style="width: 100%">{{ titleGeneral }}</p>
+  <div class="componentForm" style="width: 100%; border: 2px solid black; border-radius: 30px">
+    <p class="componentForm__text" style="width: 100%">{{ titleGeneral }}</p>
     <div class="q-pa-sm" style="width: 50%;">
       <p class="text-h5">{{ titleOne }}</p>
       <TwoInputText title="П1 "></TwoInputText>
@@ -25,7 +25,7 @@ import {
 } from 'vue';
 
 export default defineComponent({
-  name: 'OddsOutcome',
+  name: 'OddsOutcomeComponent',
   components: { TwoInputText },
   props: {
     titleGeneral: {
