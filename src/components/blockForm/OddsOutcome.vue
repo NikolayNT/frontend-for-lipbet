@@ -1,5 +1,5 @@
 <template>
-  <div class="componentForm" style="width: 100%; border: 2px solid black; border-radius: 30px">
+  <div class="componentForm row q-pa-sm" style="width: 100%; border: 2px solid black; border-radius: 30px">
     <p class="componentForm__text" style="width: 100%">{{ titleGeneral }}</p>
     <div class="q-pa-sm" style="width: 50%;">
       <p class="text-h5">{{ titleOne }}</p>

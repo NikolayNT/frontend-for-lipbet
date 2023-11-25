@@ -1,6 +1,6 @@
 <template>
-  <div class="colomn q-pa-sm" style="width: 100%; border: 2px solid black; border-radius: 30px">
-    <p class="text-h4" style="width: 100%;">{{ titleGeneral }}</p>
+  <div class="componentForm q-pa-sm" style="width: 100%; border: 2px solid black; border-radius: 30px">
+    <p class="componentForm__text" style="width: 100%;">{{ titleGeneral }}</p>
     <div class="row">
       <BlockForFormStatisticsVue title="% Владения мячом" class="col-6"></BlockForFormStatisticsVue>
       <BlockForFormStatisticsVue title="Удары по воротам" class="col-6"></BlockForFormStatisticsVue>

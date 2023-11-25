@@ -1,6 +1,6 @@
 <template>
   <div class="row" style="margin-bottom: 10px;">
-    <p class="self-center q-pt-none q-ma-none q-mx-sm">{{ title }}</p>
+    <p class="self-center q-pt-none q-ma-none q-mx-sm" style="margin-top: 10px;">{{ title }}</p>
     <q-select v-model="model" :options="options" :dense="true" />
   </div>
 </template>

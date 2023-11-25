@@ -1,6 +1,6 @@
 <template>
-  <div class="colomn q-pa-sm" style="width: 100%; border: 2px solid black; border-radius: 30px">
-    <p class="text-h4" style="width: 100%;">{{ titleGeneral }}</p>
+  <div class="componentForm colomn q-pa-sm" style="width: 100%; border: 2px solid black; border-radius: 30px">
+    <p class="componentForm__text" style="width: 100%;">{{ titleGeneral }}</p>
     <BlockForFormCommands title="Команда 1"></BlockForFormCommands>
     <BlockForFormCommands title="Команда 2"></BlockForFormCommands>
     <BlockForFormCommands title="Фаворит"></BlockForFormCommands>

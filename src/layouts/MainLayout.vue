@@ -1,5 +1,5 @@
 <template>
-  <q-layout style="margin: 0 !important; padding: 0 !important; background-color: rgb(223, 244, 249)">
+  <q-layout style="position: relative; background-color: rgb(223, 244, 249)">
     <header class="header">
       <q-btn to="/" class="header__title">LipBet</q-btn>
       <div class="header__menu row">
@@ -47,6 +47,12 @@
 
     </q-drawer>
 
+    <div
+      :class="[drawerLeft ? 'q-mini-drawer-hide fixed menu__button-mini' : 'q-mini-drawer-hide fixed menu__button-mini menu__button-mini_active']"
+      style="z-index: 100000;">
+      <q-btn dense round unelevated color="indigo-7" icon="chevron_right" @click="drawerLeft = !drawerLeft" />
+    </div>
+
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -76,7 +82,6 @@ export default defineComponent({
       onItemClick(e: unknown) {
         console.log(locale),
           console.log(e)
-
       },
       onRusLocaleClick() {
         locale.value = 'ru-RU';
@@ -103,7 +108,6 @@ export default defineComponent({
   min-height: 200px;
   height: 370px;
   width: 250px !important;
-  /*background-color: rgba(161, 173, 218, 0.653);*/
   background-color: rgba(161, 173, 218, 0.923);
   border-radius: 0px 0px 15px 0px;
 }
@@ -156,6 +160,15 @@ export default defineComponent({
 
 .menu__button-open {
   margin-right: auto;
+}
+
+.menu__button-mini {
+  top: 48.7%;
+  left: -50px;
+}
+
+.menu__button-mini_active {
+  left: -5px;
 }
 
 .menu__button-active {

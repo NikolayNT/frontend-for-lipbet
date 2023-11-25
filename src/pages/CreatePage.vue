@@ -11,17 +11,22 @@
           <Goals id="box4" draggable="true" @dragstart="onDragStart"></Goals>
           <OddsOutcome id="box5" draggable="true" @dragstart="onDragStart" titleGeneral="Коэффицикнты на исход"
             titleOne="Прематч" titleTwo="Лайв"></OddsOutcome>
+          <TotalPrematchAndLive id="box6" draggable="true" @dragstart="onDragStart" titleGeneral="Тотал прематч">
+          </TotalPrematchAndLive>
+          <TotalPrematchAndLive id="box7" draggable="true" @dragstart="onDragStart" titleGeneral="Тотал лайв">
+          </TotalPrematchAndLive>
+          <FormCommandsVue id="box8" draggable="true" @dragstart="onDragStart"></FormCommandsVue>
+          <FaceToFaceGames id="box9" draggable="true" @dragstart="onDragStart"></FaceToFaceGames>
+          <FaceToFaceGoals id="box10" draggable="true" @dragstart="onDragStart"></FaceToFaceGoals>
+          <Penalty id="box11" draggable="true" @dragstart="onDragStart"></Penalty>
+          <Statistics id="box12" draggable="true" @dragstart="onDragStart" title-general="Статистика"></Statistics>
         </div>
       </div>
       <div class="areas">
         <h2 class="areas__title">Бот</h2>
         <div id="bot" class="areas__content column" :v-mutation="handler2" @dragenter="onDragEnter"
-          @dragleave="onDragLeave" @dragover="onDragOver" @drop="onDrop">
+          @dragleave="onDragLeave" @dragover="onDragOver" @drop="onDrop" style="min-height: 97.9%; padding-bottom: 0;">
           <LeaguesList></LeaguesList>
-          <div class="areas__add">
-            <p class="areas__add-title">Перетащите элемент для добавления</p>
-            <q-icon name="add" size="100px" color="white" style="margin: 0 calc(50% - 50px) 0;" />
-          </div>
         </div>
       </div>
     </div>
@@ -34,6 +39,13 @@
 </template>
 
 <script lang="ts">
+/*
+          <div class="areas__add">
+            <p class="areas__add-title">Перетащите элемент для добавления</p>
+            <q-icon name="add" size="100px" color="white" style="margin: 0 calc(50% - 50px) 0;" />
+          </div>
+*/
+
 import { useI18n } from 'vue-i18n';
 import { defineComponent, ref } from 'vue';
 
@@ -43,10 +55,29 @@ import ComandType from 'src/components/blockForm/ComandType.vue';
 import OutcomeGames from 'src/components/blockForm/OutcomeGames.vue';
 import Goals from 'src/components/blockForm/Goals.vue';
 import OddsOutcome from 'src/components/blockForm/OddsOutcome.vue';
+import TotalPrematchAndLive from 'src/components/blockForm/TotalPrematchAndLive.vue';
+import FormCommandsVue from 'src/components/blockForm/FormCommands.vue';
+import FaceToFaceGames from 'src/components/blockForm/FaceToFaceGames.vue';
+import FaceToFaceGoals from 'src/components/blockForm/FaceToFaceGoals.vue';
+import Penalty from 'src/components/blockForm/Penalty.vue';
+import Statistics from 'src/components/blockForm/Statistics.vue';
 
 export default defineComponent({
   name: 'CreatePage',
-  components: { LeaguesList, BlokMain, ComandType, OutcomeGames, Goals, OddsOutcome },
+  components: {
+    LeaguesList,
+    BlokMain,
+    ComandType,
+    OutcomeGames,
+    Goals,
+    OddsOutcome,
+    TotalPrematchAndLive,
+    FormCommandsVue,
+    FaceToFaceGames,
+    FaceToFaceGoals,
+    Penalty,
+    Statistics
+  },
   setup() {
     const { locale } = useI18n({ useScope: 'global' });
     const status1 = ref([]);

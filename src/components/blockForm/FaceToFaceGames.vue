@@ -1,16 +1,24 @@
 <template>
-  <div class="colomn q-pa-sm q-mt-md" style="width: 100%; border: 2px solid black; border-radius: 30px">
-    <p class="text-h5" style="width: 100%;">Очные игры исход</p>
-    <div class="colomn" style="width: 100%;">
-      <DropDownList></DropDownList>
+  <div class="componentForm q-pa-sm" style="width: 100%; border: 2px solid black; border-radius: 30px">
+    <p class="componentForm__text" style="width: 100%;">Очные игры исход</p>
+    <div class="colomn">
+      <div class="row">
+        <DropDownList></DropDownList>
+        <PopupAccount text="Выбрать счёт матча"></PopupAccount>
+      </div>
 
-      <p style="width: 100%;">Счёт</p>
+      <div class="row">
+        <TwoInputText title="Команда 1" text-end="игр"></TwoInputText>
+        <TwoInputText title="Ничья" text-end="игр"></TwoInputText>
+        <TwoInputText title="Команда 2" text-end="игр"></TwoInputText>
+      </div>
 
-      <TwoInputText title="Ком. 1" text-end="игр"></TwoInputText>
-      <TwoInputText title="Ничья" text-end="игр"></TwoInputText>
-      <TwoInputText title="Ком. 2" text-end="игр"></TwoInputText>
-      <TwoInputText title="Любая В" text-end="игр"></TwoInputText>
-      <TwoInputText title="Любая П" text-end="игр"></TwoInputText>
+      <div class="row">
+        <TwoInputText title="Любая В" text-end="игр"></TwoInputText>
+        <TwoInputText title="Любая П" text-end="игр"></TwoInputText>
+      </div>
+
+
 
 
     </div>
@@ -21,6 +29,7 @@
 
 import DropDownList from '../elements/DropDownList.vue';
 import TwoInputText from '../elements/TwoInputText.vue';
+import PopupAccount from '../elements/PopupAccount.vue';
 
 import {
   defineComponent,
@@ -28,6 +37,6 @@ import {
 
 export default defineComponent({
   name: 'FaceToFaceGames',
-  components: { DropDownList, TwoInputText }
+  components: { DropDownList, TwoInputText, PopupAccount }
 });
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="blok">
-    <q-btn class="button-open" :label="text" @click="dialog = true" />
+    <q-btn rounded class="button-open" :label="text" @click="dialog = true" />
     <div class="pop-up column" :class="[dialog ? 'pop-up_open' : '']">
       <div>
         <div class="row" v-for="n in 6" :key="n">
@@ -33,10 +33,6 @@ export default defineComponent({
   components: { Checkbox },
   props: {
     text: {
-      type: String,
-      default: ''
-    },
-    title: {
       type: String,
       default: ''
     },
