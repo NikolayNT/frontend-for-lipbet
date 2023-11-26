@@ -36,6 +36,6 @@ class ApiTwo {
   }
 }
 
-const apiTwo = new ApiTwo('http://localhost:3000');
+const apiTwo = new ApiTwo('http://158.160.84.168/api'); //http://localhost:3000
 
 export default apiTwo;
