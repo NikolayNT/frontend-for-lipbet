@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-md q-gutter-sm">
-    <q-editor v-model="qeditor" :dense="$q.screen.lt.md" :toolbar="[
+    <q-editor getContentEl v-model="content" :dense="$q.screen.lt.md" :toolbar="[
       [
         {
           label: $q.lang.editor.align,
@@ -88,16 +88,23 @@
 </template>
 
 <script>
+import { useI18n } from 'vue-i18n';
 import { ref } from 'vue'
 
 export default {
   name: 'TextEditorComponent',
-  setup() {
+  props: {
+    text: {
+      default: ''
+    }
+  },
+  setup(text) {
+    console.log(text)
+    const { locale } = useI18n({ useScope: 'global' })
+    const content = ref(text.text)
     return {
-      qeditor: ref(
-        '<pre>Check out the two different types of dropdowns' +
-        ' in each of the "Align" buttons.</pre> '
-      )
+      locale,
+      content,
     }
   }
 }
