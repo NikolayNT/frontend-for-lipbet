@@ -1,5 +1,14 @@
 // app global css in SCSS form
 
+// основные классы
+.theme-page {
+  background-image: url('../assets/theme.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  /*background-position: 0 242px;*/
+  background-attachment: fixed;
+}
+
 // компоненты формы
 .componentForm {
   width: 100%;

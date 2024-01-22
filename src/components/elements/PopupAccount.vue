@@ -5,7 +5,8 @@
       <div>
         <div class="row" v-for="n in 6" :key="n">
           <div class="row" v-for="k in 6" :key="k">
-            <Checkbox :title="(n - 1).toString() + ':' + (k - 1).toString()"></Checkbox>
+            <Checkbox :title="(n - 1).toString() + ':' + (k - 1).toString()"
+              :id="'s' + (n - 1).toString() + (k - 1).toString()" :func="func"></Checkbox>
           </div>
         </div>
       </div>
@@ -35,6 +36,12 @@ export default defineComponent({
     text: {
       type: String,
       default: ''
+    },
+    func: {
+      type: Function,
+      default: function () {
+        return 'херня';
+      },
     },
   },
   setup() {

@@ -1,7 +1,7 @@
 <template>
-  <q-layout style="position: relative; background-color: rgb(223, 244, 249)">
+  <q-layout class="theme-page">
     <header class="header">
-      <q-btn to="/" class="header__title">LipBet</q-btn>
+
       <div class="header__menu row">
         <q-btn class="menu__button-open q-mx-sm" :label="$t('menuHeader')" @click="drawerLeft = !drawerLeft"
           icon="density_medium" />
@@ -60,7 +60,7 @@
 </template>
 
 <script lang="ts">
-
+/*<q-btn to="/" class="header__title">LipBet</q-btn> */
 import { useI18n } from 'vue-i18n';
 
 import { defineComponent, ref, computed } from 'vue';
@@ -122,15 +122,17 @@ export default defineComponent({
 }
 
 .header {
+  position: relative;
   display: flex;
   flex-direction: column;
-  background-image: url('../assets/headerFon.jpg');
+  background-image: url('../assets/logo.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 30%;
-  height: 300px;
+  height: 199px;
   justify-content: center;
   align-items: center;
+  margin-bottom: 43px;
 }
 
 .header__title {
@@ -149,13 +151,15 @@ export default defineComponent({
 }
 
 .header__menu {
+  position: absolute;
+  left: 0;
+  bottom: -43px;
   display: flex;
   justify-content: flex-end;
   align-content: center;
   width: 100%;
   height: 43px;
   background-color: rgba(161, 173, 218, 0.923);
-  margin-top: auto;
 }
 
 .menu__button-open {

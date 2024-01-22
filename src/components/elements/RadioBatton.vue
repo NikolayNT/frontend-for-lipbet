@@ -1,9 +1,11 @@
 <template>
   <div class="column">
-    <q-radio v-model="shape" checked-icon="task_alt" unchecked-icon="panorama_fish_eye" val="line" label="Дома" />
-    <q-radio v-model="shape" checked-icon="task_alt" unchecked-icon="panorama_fish_eye" val="rectangle"
-      label="В гостях" />
-    <q-radio v-model="shape" checked-icon="task_alt" unchecked-icon="panorama_fish_eye" val="ellipse" label="Не важно" />
+    <q-radio v-model="shape" checked-icon="task_alt" unchecked-icon="panorama_fish_eye" val="one" label="Дома"
+      @update:model-value="func($event)" />
+    <q-radio v-model="shape" checked-icon="task_alt" unchecked-icon="panorama_fish_eye" val="two" label="В гостях"
+      @update:model-value="func($event)" />
+    <q-radio v-model="shape" checked-icon="task_alt" unchecked-icon="panorama_fish_eye" val="three" label="Не важно"
+      @update:model-value="func($event)" />
   </div>
 </template>
 
@@ -15,9 +17,22 @@ import {
 
 export default defineComponent({
   name: 'RadioButtonComponent',
+  props: {
+    func: {
+      type: Function,
+      default: function () {
+        return 'херня';
+      },
+    },
+  },
+  methods: {
+    log(e) {
+      console.log(e)
+    }
+  },
   setup() {
     return {
-      shape: ref('line')
+      shape: ref('one')
     }
   }
 })

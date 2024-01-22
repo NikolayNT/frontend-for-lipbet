@@ -1,5 +1,6 @@
 <template>
   <q-page style="min-height: calc(100% - 300px); position: relative;">
+    <!-- Предыдущая логика с перетаскиванием
     <p class="page__text">Чтобы создать бот, перетащите нужные компоненты в область бота и заполните их.</p>
     <div class="row">
       <div class="areas">
@@ -29,11 +30,37 @@
           <LeaguesList></LeaguesList>
         </div>
       </div>
+    </div>-->
+    <p class="page__text">
+      Необходимо заполнить блоки выше красной линии и нажать кнопку сохранить.<br />
+      Блок "Лиги" не подлежит заполнению.
+    </p>
+    <div class="areas">
+      <h2 class="areas__title">Бот</h2>
+      <div id="bot" class="areas__content column" style="min-height: 97.9%; padding-bottom: 0;">
+        <TokenBot></TokenBot>
+        <LeaguesList></LeaguesList>
+        <BlokMain id="box1"></BlokMain>
+        <ComandType id="box2"></ComandType>
+        <div style="width: 100%; height: 30px; background-color: red;"></div>
+        <OutcomeGames id="box3"></OutcomeGames>
+        <Goals id="box4"></Goals>
+        <OddsOutcome id="box5" titleGeneral="Коэффицикнты на исход" titleOne="Прематч" titleTwo="Лайв"></OddsOutcome>
+        <TotalPrematchAndLive id="box6" titleGeneral="Тотал прематч">
+        </TotalPrematchAndLive>
+        <TotalPrematchAndLive id="box7" titleGeneral="Тотал лайв">
+        </TotalPrematchAndLive>
+        <FormCommandsVue id="box8"></FormCommandsVue>
+        <FaceToFaceGames id="box9"></FaceToFaceGames>
+        <FaceToFaceGoals id="box10"></FaceToFaceGoals>
+        <Penalty id="box11"></Penalty>
+        <Statistics id="box12" title-general="Статистика"></Statistics>
+      </div>
     </div>
     <div class="button__block col">
-      <q-btn class="button__element glossy" color="indigo-7">Сохранить</q-btn>
-      <q-btn class="button__element glossy" color="indigo-7">Сбросить заполнение</q-btn>
-      <q-btn class="button__element glossy" color="indigo-7">Сбросить блоки</q-btn>
+      <q-btn class="button__element glossy" color="indigo-7" v-on:click="log()">Сохранить</q-btn>
+      <q-btn class="button__element glossy" color="grey-5">Сбросить заполнение</q-btn>
+      <q-btn class="button__element glossy" color="grey-5">Сбросить блоки</q-btn>
     </div>
   </q-page>
 </template>
@@ -49,6 +76,12 @@
 import { useI18n } from 'vue-i18n';
 import { defineComponent, ref } from 'vue';
 
+import { useBotStore } from 'src/stores/bot';
+
+const botStore = useBotStore();
+
+
+import TokenBot from 'src/components/blockForm/TokenBot.vue';
 import LeaguesList from 'src/components/blockForm/LeaguesList.vue';
 import BlokMain from 'src/components/blockForm/BlokMain.vue';
 import ComandType from 'src/components/blockForm/ComandType.vue';
@@ -65,6 +98,7 @@ import Statistics from 'src/components/blockForm/Statistics.vue';
 export default defineComponent({
   name: 'CreatePage',
   components: {
+    TokenBot,
     LeaguesList,
     BlokMain,
     ComandType,
@@ -78,6 +112,11 @@ export default defineComponent({
     Penalty,
     Statistics
   },
+  methods: {
+    log() {
+      console.log(botStore)
+    }
+  },
   setup() {
     const { locale } = useI18n({ useScope: 'global' });
     const status1 = ref([]);
@@ -87,7 +126,7 @@ export default defineComponent({
       status1,
       status2,
 
-      handler1(mutationRecords: { [x: string]: any; }) {
+      /*handler1(mutationRecords: { [x: string]: any; }) {
         status1.value = []
         for (const index in mutationRecords) {
           const record = mutationRecords[index]
@@ -107,10 +146,10 @@ export default defineComponent({
           status2.value.push(info)
           //console.log(status2)
         }
-      },
+      },*/
 
       // store the id of the draggable element
-      onDragStart(e: { dataTransfer: { setData: (arg0: string, arg1: any) => void; dropEffect: string; }; target: { id: any; }; }) {
+      /*onDragStart(e: { dataTransfer: { setData: (arg0: string, arg1: any) => void; dropEffect: string; }; target: { id: any; }; }) {
         e.dataTransfer.setData('text', e.target.id)
         e.dataTransfer.dropEffect = 'move'
       },
@@ -128,9 +167,9 @@ export default defineComponent({
 
       onDragOver(e: { preventDefault: () => void; }) {
         e.preventDefault()
-      },
+      },*/
 
-      onDrop(e: { preventDefault: () => void; target: ParentNode | null; dataTransfer: { getData: (arg0: string) => any; }; }) {
+      /*onDrop(e: { preventDefault: () => void; target: ParentNode | null; dataTransfer: { getData: (arg0: string) => any; }; }) {
         console.log(e)
         e.preventDefault()
 
@@ -164,7 +203,7 @@ export default defineComponent({
         draggedEl.draggable = false
         botContainer.appendChild(draggedEl)
         e.target.classList.remove('drag-enter')
-      }
+      }*/
     }
   }
 });
@@ -175,11 +214,14 @@ export default defineComponent({
   margin: 30px auto 30px 50px;
   padding: 0;
   font-size: 30px;
+  text-align: center;
 }
 
 .areas {
-  margin: 0px 30px 50px 30px;
-  width: 45%;
+  /*margin: 0px 30px 50px 30px;*/
+  margin: 0px auto 50px auto;
+  /*width: 45%;*/
+  width: 900px;
 }
 
 .areas__title {

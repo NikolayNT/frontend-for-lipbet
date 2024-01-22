@@ -1,7 +1,7 @@
 <template>
   <div class="blok">
     <p class="text">{{ title }} от</p>
-    <input type="number" class="input" v-model="text" style="width: 50px;" />
+    <input type="number" class="input" v-model="text" style="width: 50px;" :on-change="func(text, textTwo)" />
     <p class="text" style="margin-left: 10px;">до</p>
     <input type="number" class="input" v-model="textTwo" style="width: 50px;" />
     <p class="text" style="margin-left: 10px;">{{ textEnd }}</p>
@@ -25,6 +25,12 @@ export default defineComponent({
     textEnd: {
       type: String,
       default: ''
+    },
+    func: {
+      type: Function,
+      default: function () {
+        return 'херня';
+      },
     }
   },
   setup() {

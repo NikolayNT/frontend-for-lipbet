@@ -1,15 +1,19 @@
 <template>
-  <div class="column q-pa-sm componentForm">
+  <div class="column q-pa-sm componentForm" style="background-color: gray;">
     <p class="componentForm__text">{{ title }}</p>
-    <checkbox-component title="Российская футбольная Премьер-лига"></checkbox-component>
-    <checkbox-component title="Российская Премьер-лига"></checkbox-component>
-    <checkbox-component title="Первый дивизион ФНЛ"></checkbox-component>
-    <checkbox-component title="Второй дивизион"></checkbox-component>
-    <checkbox-component title="Муниципальные чемпионаты"></checkbox-component>
+    <div class="row" v-for="item in list" :key="item">
+      <checkbox-component :title="item"></checkbox-component>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
+
+import { useBotStore } from 'src/stores/bot';
+import { storeToRefs } from 'pinia';
+
+const botStore = useBotStore();
+const { leagues } = storeToRefs(botStore);
 
 import CheckboxComponent from '../elements/Checkbox.vue';
 
@@ -25,6 +29,14 @@ export default defineComponent({
       type: String,
       default: 'Лиги'
     },
+  },
+  setup() {
+    let list = [];
+    list = leagues.value.split(';');
+    console.log(list)
+    return {
+      list,
+    }
   }
 });
 </script>
