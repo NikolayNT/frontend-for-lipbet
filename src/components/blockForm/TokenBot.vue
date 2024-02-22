@@ -4,7 +4,6 @@
     <div class="blok">
       <p class="text">Токен из телеграмм:</p>
       <input type="text" class="input" v-model="text" style="width: 400px;" />
-      <p class="text">{{ token }}</p>
     </div>
   </div>
 </template>

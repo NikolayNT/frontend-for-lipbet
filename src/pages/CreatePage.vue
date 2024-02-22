@@ -35,7 +35,7 @@
       Необходимо заполнить блоки выше красной линии и нажать кнопку сохранить.<br />
       Блок "Лиги" не подлежит заполнению.
     </p>
-    <div class="areas">
+    <div class="areas" :key="componentKey"> <!--key может не работать на проде-->
       <h2 class="areas__title">Бот</h2>
       <div id="bot" class="areas__content column" style="min-height: 97.9%; padding-bottom: 0;">
         <TokenBot></TokenBot>
@@ -58,8 +58,8 @@
       </div>
     </div>
     <div class="button__block col">
-      <q-btn class="button__element glossy" color="indigo-7" v-on:click="log()">Сохранить</q-btn>
-      <q-btn class="button__element glossy" color="grey-5">Сбросить заполнение</q-btn>
+      <q-btn class="button__element glossy" color="indigo-7" v-on:click="saveBot()">Сохранить</q-btn>
+      <q-btn class="button__element glossy" color="indigo-7" v-on:click="reset()">Сбросить заполнение</q-btn>
       <q-btn class="button__element glossy" color="grey-5">Сбросить блоки</q-btn>
     </div>
   </q-page>
@@ -77,9 +77,9 @@ import { useI18n } from 'vue-i18n';
 import { defineComponent, ref } from 'vue';
 
 import { useBotStore } from 'src/stores/bot';
-
 const botStore = useBotStore();
 
+import apiTwo from 'src/api/Api';
 
 import TokenBot from 'src/components/blockForm/TokenBot.vue';
 import LeaguesList from 'src/components/blockForm/LeaguesList.vue';
@@ -112,9 +112,63 @@ export default defineComponent({
     Penalty,
     Statistics
   },
+  data() {
+    return {
+      componentKey: 0,
+    };
+  },
   methods: {
-    log() {
-      console.log(botStore)
+    reset() {
+      botStore.$patch({
+        token: '',
+        leagues:
+          'Российская футбольная Премьер-лига;Российская Премьер-лига;Первый дивизион ФНЛ;Второй дивизион',
+        main: {
+          winOneTeem: false,
+          winTwoTeem: false,
+          draw: false,
+          firstPeriod: false,
+          twoPeriod: false,
+          break: false,
+
+          minuteFrom: '',
+          minuteTo: '',
+
+          matchScore: [],
+
+          matchScoreOnBreak: [],
+        },
+        typeOfCommand: {
+          favorite: {
+            ratioFrom: '',
+            ratioTo: '',
+            place: 'home', //[home, visit, matter]
+            win: false,
+            lose: false,
+            draw: false,
+          },
+          loser: {
+            ratioFrom: '',
+            ratioTo: '',
+            place: 'home', //[home, visit, matter]
+            win: false,
+            lose: false,
+            draw: false,
+          },
+        },
+      });
+      this.componentKey += 1;
+    },
+
+    saveBot() {
+      console.log(botStore.$state)
+      apiTwo.postBot(botStore.$state)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
     }
   },
   setup() {

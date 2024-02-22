@@ -8,8 +8,24 @@
 import { useI18n } from 'vue-i18n';
 import { defineComponent, } from 'vue';
 
+import StatisticLive from 'src/api/StatisticLive';
+
 export default defineComponent({
   name: 'MatchesPage',
+  created() {
+    this.getStat()
+  },
+  methods: {
+    getStat() {
+      StatisticLive.getLive()
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
+  },
   setup() {
     const { locale } = useI18n({ useScope: 'global' })
     return {

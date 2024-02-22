@@ -34,8 +34,19 @@ class ApiTwo {
       method: 'GET',
     }).then(this._checkResponse);
   }
+
+  // бот //
+
+  //save
+  postBot(bot: object) {
+    return fetch(`${this.baseUrl}/bot`, {
+      headers: this._headers,
+      method: 'POST',
+      body: JSON.stringify({ bot }),
+    }).then(this._checkResponse);
+  }
 }
 
-const apiTwo = new ApiTwo('http://158.160.84.168/api'); //http://localhost:3000
+const apiTwo = new ApiTwo('http://localhost:3000/api'); //http://localhost:3000 //'http://158.160.84.168/api'
 
 export default apiTwo;

@@ -96,8 +96,20 @@ module.exports = configure(function (/* ctx */) {
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#devServer
     devServer: {
-      // https: true
-      open: true // opens browser window automatically
+      https: true,
+      open: true, // opens browser window automatically
+      server: {
+        type: 'https', // NECESSARY
+
+        options: {
+          // Use ABSOLUTE paths or path.join(__dirname, 'root/relative/path')
+          key: '/path/to/server.key',
+          pfx: '/path/to/server.pfx',
+          cert: '/path/to/server.crt',
+          ca: '/path/to/ca.pem',
+          passphrase: 'webpack-dev-server' // do you need it?
+        }
+      }
     },
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#framework

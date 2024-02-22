@@ -1,9 +1,9 @@
 <template>
   <div class="blok">
     <p class="text">{{ title }} от</p>
-    <input type="number" class="input" v-model="text" style="width: 50px;" :on-change="func(text, textTwo)" />
+    <input placeholder="1.01" class="input" v-model="text" style="width: 50px;" :on-change="func(text, textTwo)" />
     <p class="text" style="margin-left: 10px;">до</p>
-    <input type="number" class="input" v-model="textTwo" style="width: 50px;" />
+    <input placeholder="1.01" v-model="textTwo" style="width: 50px;" :on-change="func(text, textTwo)" />
     <p class="text" style="margin-left: 10px;">{{ textEnd }}</p>
   </div>
 </template>

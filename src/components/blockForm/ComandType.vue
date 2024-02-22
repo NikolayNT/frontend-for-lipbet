@@ -5,15 +5,14 @@
       <TwoInputText title="Фаворит коэффициент " :func="favoriteScore"></TwoInputText>
       <div class="row">
         <div style="width: 50%;">
-          <RadioBatton :func="favoriteHome"></RadioBatton>
+          <RadioButtonBig :func="favoriteHome" :state="typeOfCommand" type="favorite"
+            :list="[{ value: 'home', label: 'Дома' }, { value: 'visit', label: 'В гостях' }, { value: 'matte', label: 'Не важно' }]">
+          </RadioButtonBig>
         </div>
         <div style="width: 50%;">
-          <checkbox-component title="Проигрывает" :bool="typeOfCommand.favorite.lose" :func="togggle"
-            id='lose'></checkbox-component>
-          <checkbox-component title="Выигрывает" :bool="typeOfCommand.favorite.win" :func="togggle"
-            id='win'></checkbox-component>
-          <checkbox-component title="Ничья" :bool="typeOfCommand.favorite.draw" :func="togggle"
-            id='draw'></checkbox-component>
+          <RadioButton :func="favoriteStatus"
+            :list="[{ value: 'one', label: 'Проигрывает' }, { value: 'two', label: 'Выигрывает' }, { value: 'three', label: 'Ничья' }]">
+          </RadioButton>
         </div>
       </div>
     </div>
@@ -22,15 +21,14 @@
       <TwoInputText title="Аутсайдер коэффициент " :func="looserScore"></TwoInputText>
       <div class="row">
         <div style="width: 50%;">
-          <RadioBatton :func="loserHome"></RadioBatton>
+          <RadioButtonBig :func="loserHome" :state="typeOfCommand" type="loser"
+            :list="[{ value: 'home', label: 'Дома' }, { value: 'visit', label: 'В гостях' }, { value: 'matte', label: 'Не важно' }]">
+          </RadioButtonBig>
         </div>
         <div style="width: 50%;">
-          <checkbox-component title="Проигрывает" :bool="typeOfCommand.loser.lose" :func="togggleTwo"
-            id='lose'></checkbox-component>
-          <checkbox-component title="Выигрывает" :bool="typeOfCommand.loser.win" :func="togggleTwo"
-            id='win'></checkbox-component>
-          <checkbox-component title="Ничья" :bool="typeOfCommand.loser.draw" :func="togggleTwo"
-            id='draw'></checkbox-component>
+          <RadioButton :func="loserStatus"
+            :list="[{ value: 'one', label: 'Проигрывает' }, { value: 'two', label: 'Выигрывает' }, { value: 'three', label: 'Ничья' }]">
+          </RadioButton>
         </div>
       </div>
     </div>
@@ -40,14 +38,16 @@
 <script lang="ts">
 
 import { useBotStore } from 'src/stores/bot';
+
 import { storeToRefs } from 'pinia';
 
 const botStore = useBotStore();
 const { typeOfCommand } = storeToRefs(botStore);
 
-import CheckboxComponent from '../elements/Checkbox.vue';
+
 import TwoInputText from '../elements/TwoInputText.vue';
-import RadioBatton from '../elements/RadioBatton.vue';
+import RadioButton from '../elements/RadioButton.vue';
+import RadioButtonBig from '../elements/RadioButtonBig.vue';
 
 import {
   defineComponent,
@@ -55,68 +55,7 @@ import {
 
 export default defineComponent({
   name: 'ComandType',
-  components: { CheckboxComponent, TwoInputText, RadioBatton },
-  methods: {
-    togggle(e: boolean, idString: any) {
-      botStore.typeOfCommand.favorite[idString] = e; //херня
-      console.log(botStore.typeOfCommand.favorite[idString]);
-    },
-
-    togggleTwo(e: boolean, idString: any) {
-      botStore.typeOfCommand.loser[idString] = e; //херня
-      console.log(botStore.typeOfCommand.loser[idString]);
-    },
-
-    favoriteScore(start: string, end: string) {
-      botStore.typeOfCommand.favorite.ratioFrom = start; //херня
-      botStore.typeOfCommand.favorite.ratioTo = end;
-      console.log(botStore.typeOfCommand.favorite.ratioTo);
-    },
-
-    looserScore(start: string, end: string) {
-      botStore.typeOfCommand.loser.ratioFrom = start; //херня
-      botStore.typeOfCommand.loser.ratioTo = end;
-      console.log(botStore.typeOfCommand.loser.ratioTo);
-    },
-
-    favoriteHome(strRes: string) {
-      if (strRes === 'one') {
-        botStore.typeOfCommand.favorite.home = true;
-        botStore.typeOfCommand.favorite.onVisit = false;
-        botStore.typeOfCommand.favorite.noMatter = false;
-      }
-      else if (strRes === 'two') {
-        botStore.typeOfCommand.favorite.home = false;
-        botStore.typeOfCommand.favorite.onVisit = true;
-        botStore.typeOfCommand.favorite.noMatter = false;
-      }
-      else {
-        botStore.typeOfCommand.favorite.home = false;
-        botStore.typeOfCommand.favorite.onVisit = false;
-        botStore.typeOfCommand.favorite.noMatter = true;
-      }
-      console.log(strRes);
-    },
-
-    loserHome(strRes: string) {
-      if (strRes === 'one') {
-        botStore.typeOfCommand.loser.home = true;
-        botStore.typeOfCommand.loser.onVisit = false;
-        botStore.typeOfCommand.loser.noMatter = false;
-      }
-      else if (strRes === 'two') {
-        botStore.typeOfCommand.loser.home = false;
-        botStore.typeOfCommand.loser.onVisit = true;
-        botStore.typeOfCommand.loser.noMatter = false;
-      }
-      else {
-        botStore.typeOfCommand.loser.home = false;
-        botStore.typeOfCommand.loser.onVisit = false;
-        botStore.typeOfCommand.loser.noMatter = true;
-      }
-      console.log(strRes);
-    }
-  },
+  components: { TwoInputText, RadioButton, RadioButtonBig },
   props: {
     titleOne: {
       type: String,
@@ -126,6 +65,86 @@ export default defineComponent({
       type: String,
       default: 'Аутсайдер'
     },
+  },
+  methods: {
+    /*togggle(e: boolean, idString: any) {
+      botStore.typeOfCommand.favorite[idString] = e; //херня
+      console.log(botStore.typeOfCommand.favorite[idString]);
+    },
+
+    togggleTwo(e: boolean, idString: any) {
+      botStore.typeOfCommand.loser[idString] = e; //херня
+      console.log(botStore.typeOfCommand.loser[idString]);
+    },
+*/
+    favoriteScore(start: string, end: string) {
+      botStore.typeOfCommand.favorite.ratioFrom = start; //херня
+      botStore.typeOfCommand.favorite.ratioTo = end;
+      console.log(botStore.typeOfCommand.favorite.ratioTo);
+
+    },
+
+    looserScore(start: string, end: string) {
+      botStore.typeOfCommand.loser.ratioFrom = start; //херня
+      botStore.typeOfCommand.loser.ratioTo = end;
+      console.log(botStore.typeOfCommand.loser.ratioTo);
+
+    },
+
+    favoriteHome(strRes: string) {
+      botStore.typeOfCommand.favorite.place = strRes;
+      if (botStore.typeOfCommand.favorite.place === botStore.typeOfCommand.loser.place) {
+        console.log('ваворит равен лусер')
+        if (botStore.typeOfCommand.favorite.place === 'home') {
+          botStore.typeOfCommand.loser.place = 'visit';
+        }
+        else if (botStore.typeOfCommand.favorite.place === 'visit') {
+          botStore.typeOfCommand.loser.place = 'home';
+        }
+      }
+      console.log(botStore.typeOfCommand);
+
+    },
+
+    loserHome(strRes: string) {
+      botStore.typeOfCommand.loser.place = strRes;
+      if (botStore.typeOfCommand.favorite.place === botStore.typeOfCommand.loser.place) {
+        if (botStore.typeOfCommand.loser.place === 'home') {
+          botStore.typeOfCommand.favorite.place = 'visit';
+        }
+        else if (botStore.typeOfCommand.loser.place === 'visit') {
+          botStore.typeOfCommand.favorite.place = 'home';
+        }
+      }
+      console.log(botStore.typeOfCommand);
+
+    },
+
+    favoriteStatus(strRes: string) {
+      if (strRes === 'one') { // [win , lose, draw]
+        botStore.typeOfCommand.favorite.statusPlay = 'lose'
+      }
+      else if (strRes === 'two') {
+        botStore.typeOfCommand.favorite.statusPlay = 'win'
+      }
+      else {
+        botStore.typeOfCommand.favorite.statusPlay = 'draw'
+      }
+      console.log(botStore.typeOfCommand);
+    },
+
+    loserStatus(strRes: string) {
+      if (strRes === 'one') { // [win , lose, draw]
+        botStore.typeOfCommand.loser.statusPlay = 'lose'
+      }
+      else if (strRes === 'two') {
+        botStore.typeOfCommand.loser.statusPlay = 'win'
+      }
+      else {
+        botStore.typeOfCommand.loser.statusPlay = 'draw'
+      }
+      console.log(strRes);
+    }
   },
   setup() {
     return {
